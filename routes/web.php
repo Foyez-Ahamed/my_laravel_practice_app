@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 
-Route::get('/hello', function(){
-    return 'Hello from practie laravel app, Practice by Foyez Ahamed';
-});
+// Route::get('/hello', function(){
+//     return 'Hello from practie laravel app, Practice by Foyez Ahamed';
+// });
+
+Route::get('/helloo', [DemoController::class, 'demoAction']);
