@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 class DemoController extends Controller
 {
     function demoAction (Request $request) {
-       $data=$request->all();
-       return response()->json($data);
+       $name=$request->header('name');
+       $age=$request->header('age');
+
+       return "My name is $name and my age is $age";
     }
 }
