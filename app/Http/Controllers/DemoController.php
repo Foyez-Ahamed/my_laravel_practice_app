@@ -6,30 +6,22 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function demoAction (Request $request) {
-    //url theke data recieve //
-    $name=$request->name;
-    $age=$request->age;
+    function demoAction (Request $request){
+        $photoFile=$request->file('photo');
 
-    //body theke data receive //
-    $wife=$request->input('wife');
-    $nephew=$request->input('nephew');
+        $fileSize=filesize($photoFile);
+        $fileType=filetype($photoFile);
+        $fileTempName=$photoFile->getFilename();
+        $fileOriginalName=$photoFile->getClientOriginalName();
+        $fileExtension=$photoFile->extension();
 
-    //header theke data receive //
-
-    $father=$request->header('father');
-    $mother=$request->header('mother');
-
-    return array(
-        "name"=> $name,
-        "age"=> $age,
-        "wife"=> $wife,
-        "nephew"=> $nephew,
-        "father"=> $father,
-        "mother"=> $mother
-    );
-
-
-
+        return array(
+            'photoFile'=>$photoFile,
+            'fileSize'=>$fileSize,
+            'fileType'=>$fileType,
+            'fileTempName'=>$fileTempName,
+            'fileOriginalName'=>$fileOriginalName,
+            'fileExtension'=>$fileExtension
+        );
     }
 }

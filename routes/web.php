@@ -23,4 +23,4 @@ use Illuminate\Support\Facades\Route;
 //     return 'Hello from practie laravel app, Practice by Foyez Ahamed';
 // });
 
-Route::get('/hello', [DemoController::class, 'demoAction']);
+Route::post('/hello', [DemoController::class, 'demoAction']);
