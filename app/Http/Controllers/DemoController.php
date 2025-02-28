@@ -7,9 +7,29 @@ use Illuminate\Http\Request;
 class DemoController extends Controller
 {
     function demoAction (Request $request) {
-       $name=$request->header('name');
-       $age=$request->header('age');
+    //url theke data recieve //
+    $name=$request->name;
+    $age=$request->age;
 
-       return "My name is $name and my age is $age";
+    //body theke data receive //
+    $wife=$request->input('wife');
+    $nephew=$request->input('nephew');
+
+    //header theke data receive //
+
+    $father=$request->header('father');
+    $mother=$request->header('mother');
+
+    return array(
+        "name"=> $name,
+        "age"=> $age,
+        "wife"=> $wife,
+        "nephew"=> $nephew,
+        "father"=> $father,
+        "mother"=> $mother
+    );
+
+
+
     }
 }
