@@ -6,14 +6,9 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function demoAction (Request $request){
-        $photoFile=$request->file('photo');
+    function demoAction (Request $request): string|null|int|bool|array {
 
-        // $photoFile->storeAs('upload', $photoFile->getClientOriginalName());
-
-        $photoFile->move('upload', $photoFile->getClientOriginalName());
-
-        //ami chile eikhane upload/images o dite pari //
+        return 'Hello world';
 
     }
 }
